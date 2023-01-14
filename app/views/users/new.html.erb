@@ -1,9 +1,22 @@
-<form action='/users' method='post' accept-charset="UTF-8">
-  <label for="username">Username:</label>
-  <input type="text" name='user[username]' id='username'>
-  <label for="email">Email:</label>
-  <input type="email" name="user[email]" id="email">
-  <label for="password">Password:</label>
-  <input type="password" name="user[password]" id="password">
-  <input type="submit" value='Submit'>
-</form>
+<!--
+  <form action='/users' method='post' accept-charset="UTF-8">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <label for="username">Username:</label>
+    <input type="text" name='user[username]' id='username'>
+    <label for="email">Email:</label>
+    <input type="email" name="user[email]" id="email">
+    <label for="password">Password:</label>
+    <input type="password" name="user[password]" id="password">
+    <input type="submit" value='Submit'>
+  </form>
+-->
+
+  <%= form_with model: @user do |form| %>
+    <%= form.label :username, 'Username:' %>
+    <%= form.text_field :username, placeholder: 'Your username here' %>
+    <%= form.label :email, 'Email:' %>
+    <%= form.email_field :email, placeholder: 'example@example.com' %>
+    <%= form.label :password, 'Password:' %>
+    <%= form.password_field :password, placeholder: 'Your password' %>
+    <%= form.submit %>
+  <% end%>
