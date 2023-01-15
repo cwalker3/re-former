@@ -1,4 +1,13 @@
+  <% @user.errors.each do |error| %>
+    <%= error.full_message %>
+  <% end %>
+  
   <%= form_with model: @user do |form| %>
+
+    <% @user.errors.each do |error| %>
+      <%= error.full_message %>
+    <% end %>
+
     <%= form.label :username, 'Username:' %>
     <%= form.text_field :username, placeholder: 'Your username here' %>
     <%= form.label :email, 'Email:' %>
